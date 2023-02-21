@@ -1,0 +1,265 @@
+//
+// Aside
+//
+
+// General mode
+.app-aside {
+    @include app-layout-transition();
+}
+
+// Desktop mode
+@include media-breakpoint-up(lg) {
+    // Base
+    .app-aside {
+        display: flex;
+        width: var(--bs-app-aside-width);
+        @include attr( z-index, $app-aside-base-z-index);
+        @include attr( background-color, $app-aside-base-bg-color);
+        @include attr( box-shadow, $app-aside-base-box-shadow);
+        @include attr( border-left, $app-aside-base-border-start);
+        @include attr( border-right, $app-aside-base-border-end);
+        @include attr( margin-left, $app-aside-base-gap-start);
+        @include attr( margin-right, $app-aside-base-gap-end);
+        @include attr( margin-top, $app-aside-base-gap-top);
+        @include attr( margin-bottom, $app-aside-base-gap-bottom);
+    }
+
+    // Vars
+    body {
+        --bs-app-aside-width: #{$app-aside-base-width};
+        --bs-app-aside-width-actual: #{$app-aside-base-width};
+
+        --bs-app-aside-gap-start: #{$app-aside-base-gap-start};
+        --bs-app-aside-gap-end: #{$app-aside-base-gap-end};
+        --bs-app-aside-gap-top: #{$app-aside-base-gap-top};
+        --bs-app-aside-gap-bottom: #{$app-aside-base-gap-bottom};
+    }
+
+    [data-kt-app-aside-stacked="true"] {
+        --bs-app-aside-width: calc(var(--bs-app-aside-primary-width) + var(--bs-app-aside-secondary-width));
+    }
+
+    [data-kt-app-aside-minimize="on"] {
+        --bs-app-aside-width: #{$app-aside-minimize-width};
+
+        --bs-app-aside-gap-start: #{$app-aside-minimize-gap-start};
+        --bs-app-aside-gap-end: #{$app-aside-minimize-gap-end};
+        --bs-app-aside-gap-top: #{$app-aside-minimize-gap-top};
+        --bs-app-aside-gap-bottom: #{$app-aside-minimize-gap-bottom};
+    }
+
+    [data-kt-app-aside-sticky="on"] {
+        --bs-app-aside-width: #{$app-aside-sticky-width};
+
+        --bs-app-aside-gap-start: #{$app-aside-sticky-gap-start};
+        --bs-app-aside-gap-end: #{$app-aside-sticky-gap-end};
+        --bs-app-aside-gap-top: #{$app-aside-sticky-gap-top};
+        --bs-app-aside-gap-bottom: #{$app-aside-sticky-gap-bottom};
+    }
+
+    [data-kt-app-aside-collapse="on"] {
+        --bs-app-aside-width: 0px;
+    }
+
+    // States
+    .app-aside {
+        [data-kt-app-aside-static="true"] & {
+            position: relative;
+        }
+
+        [data-kt-app-aside-offcanvas="true"] & {
+            display: none;
+        }
+
+        [data-kt-app-aside-fixed="true"] & {
+            @include attr( z-index, $app-aside-fixed-z-index);
+            position: fixed;
+            left: 0;
+            top: 0;
+            bottom: 0;
+        }
+
+        [data-kt-app-aside-stacked="true"] & {
+            align-items: stretch;
+        }
+
+        [data-kt-app-aside-sticky="on"] & {
+            position: fixed;
+            @include app-layout-transition();
+            @include attr( top, $app-aside-sticky-top);
+            @include attr( bottom, $app-aside-sticky-bottom);
+            @include attr( left, $app-aside-sticky-left);
+            @include attr( z-index, $app-aside-sticky-z-index);
+            @include attr( box-shadow, $app-aside-sticky-box-shadow);
+            @include attr( border-left, $app-aside-sticky-border-start);
+            @include attr( border-right, $app-aside-sticky-border-end);
+            @include attr( margin-left, $app-aside-sticky-gap-start);
+            @include attr( margin-right, $app-aside-sticky-gap-end);
+            @include attr( margin-top, $app-aside-sticky-gap-top);
+            @include attr( margin-bottom, $app-aside-sticky-gap-bottom);
+        }
+
+        [data-kt-app-aside-minimize="on"] & {
+            @include app-layout-transition();
+            @include attr( background-color, $app-aside-minimize-bg-color);
+            @include attr( box-shadow, $app-aside-minimize-box-shadow);
+            @include attr( border-left, $app-aside-minimize-border-start);
+            @include attr( border-right, $app-aside-minimize-border-end);
+            @include attr( margin-left, $app-aside-minimize-gap-start);
+            @include attr( margin-right, $app-aside-minimize-gap-end);
+            @include attr( margin-top, $app-aside-minimize-gap-top);
+            @include attr( margin-bottom, $app-aside-minimize-gap-bottom);
+        }
+
+        // Hover minimized
+        [data-kt-app-aside-hoverable="true"][data-kt-app-aside-minimize="on"] &:hover:not(.animating) {
+            @include app-layout-transition();
+			width: var(--bs-app-aside-width-actual);
+            @include attr( box-shadow, $app-aside-minimize-hover-box-shadow);
+        }
+
+        [data-kt-app-aside-collapse="on"] & {
+            @include app-layout-transition();
+            width: var(--bs-app-aside-width-actual);
+            margin-left: calc( -1 * var(--bs-app-aside-width-actual));
+        }
+    }
+
+    // Utilities
+    [data-kt-app-aside-minimize="on"] {
+        .app-aside-minimize-d-none {
+            display: none !important;
+        }
+
+        .app-aside-minimize-d-flex {
+            display: flex !important;
+        }
+    }
+
+    [data-kt-app-aside-sticky="on"] {
+        .app-aside-sticky-d-none {
+            display: none !important;
+        }
+
+        .app-aside-sticky-d-flex {
+            display: flex !important;
+        }
+    }
+
+    [data-kt-app-aside-collapse="on"] {
+        .app-aside-collapse-d-none {
+            display: none !important;
+        }
+
+        .app-aside-collapse-d-flex {
+            display: flex !important;
+        }
+    }
+
+    // Integration
+    .app-aside {
+        // Header
+        [data-kt-app-aside-fixed="true"][data-kt-app-header-fixed="true"]:not([data-kt-app-aside-push-header="true"]) & {
+            top: var(--bs-app-header-height);
+        }
+
+        // Toolbar
+        [data-kt-app-aside-fixed="true"][data-kt-app-header-fixed="true"][data-kt-app-toolbar-fixed="true"]:not([data-kt-app-aside-push-toolbar="true"]) & {
+            top: calc(var(--bs-app-header-height) + var(--bs-app-toolbar-height, 0px));
+        }
+    }
+}
+
+// Tablet & mobile modes
+@include media-breakpoint-down(lg) {
+    // Base
+    .app-aside {
+        display: none;
+        width: var(--bs-app-aside-width);
+        @include attr( z-index, $app-aside-base-z-index-mobile);
+        @include attr( background-color, $app-aside-base-bg-color-mobile);
+        @include attr( box-shadow, $app-aside-base-box-shadow-mobile);
+        @include attr( border-left, $app-aside-base-border-start-mobile);
+        @include attr( border-right, $app-aside-base-border-end-mobile);
+        @include attr( margin-left, $app-aside-base-gap-start-mobile);
+        @include attr( margin-right, $app-aside-base-gap-end-mobile);
+        @include attr( margin-top, $app-aside-base-gap-top-mobile);
+        @include attr( margin-bottom, $app-aside-base-gap-bottom-mobile);
+    }
+
+    // Vars
+    body {
+        --bs-app-aside-width: #{$app-aside-base-width-mobile};
+        --bs-app-aside-width-actual: #{$app-aside-base-width-mobile};
+
+        --bs-app-aside-gap-start: #{$app-aside-base-gap-start-mobile};
+        --bs-app-aside-gap-end: #{$app-aside-base-gap-end-mobile};
+        --bs-app-aside-gap-top: #{$app-aside-base-gap-top-mobile};
+        --bs-app-aside-gap-bottom: #{$app-aside-base-gap-bottom-mobile};
+    }
+
+    [data-kt-app-aside-minimize-mobile="on"] {
+        --bs-app-aside-width: #{$app-aside-minimize-width-mobile};
+
+        --bs-app-aside-gap-start: #{$app-aside-minimize-gap-start-mobile};
+        --bs-app-aside-gap-end: #{$app-aside-minimize-gap-end-mobile};
+        --bs-app-aside-gap-top: #{$app-aside-minimize-gap-top-mobile};
+        --bs-app-aside-gap-bottom: #{$app-aside-minimize-gap-bottom-mobile};
+    }
+
+    [data-kt-app-aside-collapse-mobile="on"] {
+        --bs-app-aside-width: 0px;
+    }
+
+    // States
+    .app-aside {
+        [data-kt-app-aside-stacked="true"] & {
+            align-items: stretch;
+        }
+
+        [data-kt-app-aside-minimize-mobile="on"] & {
+            @include app-layout-transition();
+            @include attr( background-color, $app-aside-minimize-bg-color-mobile);
+            @include attr( box-shadow, $app-aside-minimize-box-shadow-mobile);
+            @include attr( border-left, $app-aside-minimize-border-start-mobile);
+            @include attr( border-right, $app-aside-minimize-border-end-mobile);
+            @include attr( margin-left, $app-aside-minimize-gap-start-mobile);
+            @include attr( margin-right, $app-aside-minimize-gap-end-mobile);
+            @include attr( margin-top, $app-aside-minimize-gap-top-mobile);
+            @include attr( margin-bottom, $app-aside-minimize-gap-bottom-mobile);
+        }
+
+        [data-kt-app-aside-hoverable-mobile="true"][data-kt-app-aside-minimize-mobile="on"] &:hover:not(.animating) {
+            @include app-layout-transition();
+			width: var(--bs-app-aside-width-actual);
+            @include attr( box-shadow, $app-aside-minimize-hover-box-shadow-mobile);
+        }
+
+        [data-kt-app-aside-collapse-mobile="on"] & {
+            @include app-layout-transition();
+            width: var(--bs-app-aside-width-actual);
+            margin-left: calc( -1 * var(--bs-app-aside-width-actual));
+        }
+    }
+
+    // Utilities
+    [data-kt-app-aside-minimize-mobile="on"] {
+        .app-aside-minimize-mobile-d-none {
+            display: none !important;
+        }
+
+        .app-aside-minimize-mobile-d-flex {
+            display: flex !important;
+        }
+    }
+
+    [data-kt-app-aside-collapse-mobile="on"] {
+        .app-aside-collapse-mobile-d-none {
+            display: none !important;
+        }
+
+        .app-aside-collapse-mobile-d-flex {
+            display: flex !important;
+        }
+    }
+}

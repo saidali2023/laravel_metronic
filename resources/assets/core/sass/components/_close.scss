@@ -1,0 +1,14 @@
+//
+// Close
+//
+
+.btn-close {
+	color: var(--bs-btn-close-color);
+	background-image: var(--bs-btn-close-bg);
+	background-position: center;
+
+
+	&:hover {
+		color: var(--bs-btn-close-color);
+	}
+}

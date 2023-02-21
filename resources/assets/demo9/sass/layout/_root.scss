@@ -1,0 +1,71 @@
+//
+// Root
+//
+
+// Light mode
+@include color-mode(light) {
+    // Page bg
+    --#{$prefix}page-bg: #{$page-bg};
+
+    // App blank bg color
+    --#{$prefix}app-blank-bg: #{$app-blank-bg-color};
+
+    // Header
+    --#{$prefix}header-general-bg-color: #{get($header-config, general, bg-color)};
+    --#{$prefix}header-general-box-shadow: #{get($header-config, general, box-shadow)};
+
+    --#{$prefix}header-search-icon-color: #{get($header-config, search, icon-color)};
+    --#{$prefix}header-search-bg-color: #{get($header-config, search, bg-color)};
+    --#{$prefix}header-search-placeholder-color: #{get($header-config, search, placeholder-color)};
+    --#{$prefix}header-search-font-color: #{get($header-config, search, font-color)};
+
+    --#{$prefix}header-button-icon-color: #{get($header-config, button, icon-color)};
+    --#{$prefix}header-button-bg-color: #{get($header-config, button, bg-color)};
+    --#{$prefix}header-button-icon-color-active: #{get($header-config, button, icon-color-active)};
+
+    --#{$prefix}header-mobile-bg-color: #{get($header-config, mobile, bg-color)};
+
+    // Aside
+    --#{$prefix}aside-bg-color: #{get($aside-config, bg-color)};
+    --#{$prefix}aside-box-shadow: #{get($aside-config, box-shadow)};
+
+    --#{$prefix}aside-menu-icon-bg-color: #{get($aside-config, menu-icon, bg-color)};
+    --#{$prefix}aside-menu-icon-bg-color-active: #{get($aside-config, menu-icon, bg-color-active)};
+    --#{$prefix}aside-menu-icon-icon-color: #{get($aside-config, menu-icon, icon-color)};
+    --#{$prefix}aside-menu-icon-icon-color-active: #{get($aside-config, menu-icon, icon-color-active)};
+    --#{$prefix}aside-menu-icon-icon-color-hover: #{get($aside-config, menu-icon, icon-color-hover)};
+}
+
+// Dark mode
+@include color-mode(dark) {
+    // Page bg
+    --#{$prefix}page-bg: #{$page-bg-dark};
+
+    // App blank bg color
+    --#{$prefix}app-blank-bg: #{$app-blank-bg-color-dark};
+
+    // Header
+    --#{$prefix}header-general-bg-color: #{get($header-config, general, bg-color-dark)};
+    --#{$prefix}header-general-box-shadow: #{get($header-config, general, box-shadow-dark)};
+
+    --#{$prefix}header-search-icon-color: #{get($header-config, search, icon-color-dark)};
+    --#{$prefix}header-search-bg-color: #{get($header-config, search, bg-color-dark)};
+    --#{$prefix}header-search-placeholder-color: #{get($header-config, search, placeholder-color-dark)};
+    --#{$prefix}header-search-font-color: #{get($header-config, search, font-color-dark)};
+
+    --#{$prefix}header-button-icon-color: #{get($header-config, button, icon-color-dark)};
+    --#{$prefix}header-button-bg-color: #{get($header-config, button, bg-color-dark)};
+    --#{$prefix}header-button-icon-color-active: #{get($header-config, button, icon-color-active-dark)};
+
+    --#{$prefix}header-mobile-bg-color: #{get($header-config, mobile, bg-color-dark)};
+
+    // Aside
+    --#{$prefix}aside-bg-color: #{get($aside-config, bg-color-dark)};
+    --#{$prefix}aside-box-shadow: #{get($aside-config, box-shadow-dark)};
+
+    --#{$prefix}aside-menu-icon-bg-color: #{get($aside-config, menu-icon, bg-color-dark)};
+    --#{$prefix}aside-menu-icon-bg-color-active: #{get($aside-config, menu-icon, bg-color-active-dark)};
+    --#{$prefix}aside-menu-icon-icon-color: #{get($aside-config, menu-icon, icon-color-dark)};
+    --#{$prefix}aside-menu-icon-icon-color-active: #{get($aside-config, menu-icon, icon-color-active-dark)};
+    --#{$prefix}aside-menu-icon-icon-color-hover: #{get($aside-config, menu-icon, icon-color-hover-dark)};
+}

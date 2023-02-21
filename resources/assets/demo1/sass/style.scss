@@ -1,0 +1,17 @@
+//
+// Theme style
+//
+
+// Initialize
+@import "init";
+
+// Components
+@import "../../core/sass/components/components";
+@import "components/components";
+
+// Docs(not mandatory)
+@import "../../core/sass/docs/layout";
+
+// Layout
+@import "../../core/sass/layout/base/layout";
+@import "layout/layout";

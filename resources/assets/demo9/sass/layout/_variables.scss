@@ -1,0 +1,97 @@
+//
+// Layout Config
+//
+
+// Root font Sizes
+$root-font-size:                                    13px; // Root font size for desktop mode
+$root-font-size-lg:                             	13px; // Root font size for tablet mode
+$root-font-size-md:                             	12px; // Root font size for mobile mode 
+
+// Page background Color
+$page-bg: 											#F9FAFB !default;
+$page-bg-dark:										#151521 !default;
+
+// App blank bg color
+$app-blank-bg-color: 								$white;
+$app-blank-bg-color-dark: 							#151521;
+
+
+// Content Spacing
+$content-spacing: (
+	desktop: 30px, // Padding for desktop mode
+	tablet-and-mobile: 15px // Padding for tablet and mobile modes
+) !default;
+
+
+// Header
+$header-config: (
+	general: (		
+		offset: 70px,
+		height: (
+			default: 240px,
+			sticky: 80px
+		),
+		z-index: 100,
+		bg-color: #2C294B,
+		bg-color-dark: darken($page-bg-dark, 3%),
+		box-shadow: 0px 10px 30px 0px rgba(82,63,105,0.05),
+		box-shadow-dark: none
+	),
+
+	search: (
+		icon-color: $white,
+		icon-color-dark: $white,
+		bg-color: #403E5D,
+		bg-color-dark: lighten($page-bg-dark, 6%),
+		placeholder-color: #7E8299,
+		placeholder-color-dark: lighten($page-bg-dark, 30%),
+		font-color: lighten(#7E8299, 3%),
+		font-color-dark: lighten($page-bg-dark, 40%),
+	),
+
+	button: (
+		icon-color: $white,
+		icon-color-dark: $white,
+		bg-color: #403E5E,
+		bg-color-dark: lighten($page-bg-dark, 6%),
+		icon-color-active: $primary,
+		icon-color-active-dark: $primary,
+	),
+
+	mobile: (		
+		bg-color: $body-bg,
+		bg-color-dark: $body-bg-dark,
+	)
+) !default;
+
+
+// Aside
+$aside-config: (
+	bg-color: $body-bg,
+	bg-color-dark: $body-bg-dark,
+	width: (
+		desktop: 140px, 
+		tablet-and-mobile: 100px
+	),
+	z-index: 98, // Aside's z-index property
+	box-shadow: 0px 0px 80px 50px rgba(206, 213, 225, 0.12),
+	box-shadow-dark: none,
+	menu-icon: (
+		width:  58px,
+		size: (
+			svg: 28px,
+			font: 22px
+		),
+		border-radius: 22px,
+		bg-color: rgba(245, 248, 250, 0.8),
+		bg-color-dark: $gray-100-dark,
+		bg-color-active: $primary,
+		bg-color-active-dark: $primary,
+		icon-color: $gray-700,
+		icon-color-dark: $gray-700-dark,
+		icon-color-active: $white,
+		icon-color-active-dark: $white,
+		icon-color-hover: $primary,
+		icon-color-hover-dark: $primary
+	)
+) !default;
